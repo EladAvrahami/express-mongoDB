@@ -19,7 +19,6 @@ const app = express();
 // Set security HTTP headers
 app.use(helmet());
 
-
 // Development logging
 /*console.log(process.env.NODE_DEV); */
 //make sure the logging happened only when we are on dev env
@@ -31,7 +30,7 @@ if (process.env.NODE_ENV === 'development') {
 // Limit requests from same API (against brute force attacks like try to guess user password and send many get req)
 //allow 100 per hour
 const limiter = rateLimit({
-  max: 3,
+  max: 5,
   windowMs: 60 * 60 * 1000,
   message: 'Too many requests from this IP, please try again in an hour!'
 });
