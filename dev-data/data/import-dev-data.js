@@ -19,9 +19,7 @@ mongoose
   .then(() => console.log('DB connection successful!'));
 
 // READ JSON FILE
-const tours = JSON.parse(
-  fs.readFileSync(`${__dirname}/tours-simple.json`, 'utf-8')
-);
+const tours = JSON.parse(fs.readFileSync(`${__dirname}/tours.json`, 'utf-8'));
 
 // IMPORT DATA INTO DB
 const importData = async () => {
@@ -50,3 +48,9 @@ if (process.argv[2] === '--import') {
 } else if (process.argv[2] === '--delete') {
   deleteData();
 }
+
+//enter new tours data to DB mongo from file tours.js
+//to enter the data with the geographic location model we need to delete the current data by the terminal command:
+// node ./dev-data/data/import-dev-data.js --delete
+//and enter the new data by enter the command:
+// node ./dev-data/data/import-dev-data.js --import
