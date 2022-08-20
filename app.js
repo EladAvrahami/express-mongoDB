@@ -30,7 +30,7 @@ if (process.env.NODE_ENV === 'development') {
 // Limit requests from same API (against brute force attacks like try to guess user password and send many get req)
 //allow 100 per hour
 const limiter = rateLimit({
-  max: 5,
+  max: 100,
   windowMs: 60 * 60 * 1000,
   message: 'Too many requests from this IP, please try again in an hour!'
 });
